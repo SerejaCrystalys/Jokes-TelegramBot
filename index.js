@@ -1,5 +1,3 @@
-
-
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 const commands = require('./resources/commands')
@@ -8,19 +6,6 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // requiring axios module
 const axios = require("axios").default
-
-// axios({
-// 	method: "get",
-// 	url: "https://www.e1.ru/talk/forum/read.php?f=67&i=8520068&t=8520068",  
-// 	headers: {},                               
-// 	params: {},                                        
-// 	data: {}                                    
-// }).then(_d => {                                 
-// 	console.log(_d.data)                        
-// })
-
-
-
 
 function addActionBot(name, src, text) {            // action bot func
     bot.action(name, async (ctx) => {
@@ -52,23 +37,6 @@ function addActionBot(name, src, text) {            // action bot func
         }
     })
 }
-// function addActionBotNegr(name, src, text) {            // action bot func
-//     bot.action(name, async (ctx) => {
-//         try {
-//             await ctx.answerCbQuery()               // disable clocs on buttons
-//             if (src != false) {
-//                 await ctx.replyWithPhoto({          // check source photo
-//                     source: src
-//                 })
-//             }
-
-//         }
-//         catch (e) {
-//             console.error(e);
-//         }
-//     })
-// }
-
 
 bot.start((ctx) => ctx.reply('Ку ' + (ctx.message.from.first_name ? ctx.message.from.first_name : ctx.message.from.username) + '. Выбери приколы по душе: /npNkoJI'));
 bot.help((ctx) => ctx.reply(commands.commands));
